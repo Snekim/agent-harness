@@ -1,0 +1,5 @@
+Use $harness-workflow and delegate to all four custom roles by name: architect, backend, frontend, and reviewer. Run the architect and agree on the interface before starting implementation. The backend worker may edit only server.py and must use $backend-standard. The frontend worker may edit only status.mjs and must use $frontend-standard. The parent runs acceptance checks and the reviewer reviews the actual result after implementation. Do not edit the checks or change the harness configuration. Do not commit or publish.
+
+Task: make the status page show a human-readable message from the server. GET /api/status must keep its HTTP 200 response and status: "ok", and add message: "Service is healthy". The browser must render the supplied message as text using the existing status element. Keep "Status unavailable" on request failure.
+
+Acceptance checks: `python3 check_status.py` and `node --test check_status.test.mjs`. Report actual roles and checks in the final response. If a custom role is unavailable, report it explicitly.

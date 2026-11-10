@@ -1,0 +1,45 @@
+name: agent-harness
+version: 0.1.0
+
+runtime:
+  primary: codex
+  orchestration: native
+
+models:
+  architect:
+    model: gpt-6-astra
+    effort: high
+  developer:
+    model: gpt-6.1-sol
+    effort: high
+  reviewer:
+    model: gpt-6.1-sol
+    effort: high
+
+plugins:
+  - name: compound-engineering
+    source: EveryInc/compound-engineering-plugin
+    enabled: true
+
+skills:
+  global:
+    - architecture-review
+    - api-design
+    - task-decomposition
+    - backend-standard
+    - frontend-standard
+    - harness-workflow
+
+agents:
+  - architect
+  - backend
+  - frontend
+  - reviewer
+
+workflow:
+  default: harness-workflow
+  max_parallel_agents: 4
+  require_review: true
+  require_tests: true
+  auto_merge: false
+

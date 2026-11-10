@@ -1,0 +1,7 @@
+dependencies:
+  compound-engineering:
+    repository: EveryInc/compound-engineering-plugin
+    revision: fb5548f246c67044a43940adb3f9b84d3f62606a
+    marketplace: compound-engineering-plugin
+    version: 3.37.1
+    installation: codex-plugin
